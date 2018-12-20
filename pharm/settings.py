@@ -25,7 +25,7 @@ SECRET_KEY = '2088)@948-jrtj^-mn5tgurs%h4t2l&98#37=r*7%7gc#q2$)r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['pharmacy-znu.herokuapp.com' 'localhost', '127.0.0.1']
 
 
 # Application definition
