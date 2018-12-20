@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Аптека{% endblock %}
+
+{% url 'pharmacy-drug' as pharmacy_drug_url %}
+{% url 'pharmacy-account' as pharmacy_account_url %}
+ 
+{% block sidebar %}
+<!-- Sidebar  -->
+<div class="text-center">
+    <img class="image-circle" src="{{ MEDIA_URL }}{{ request.user.pharmacy.logo }}" width="70" height="70">
+    <br>
+    <br>
+    <h6>Приветствую, {{ request.user.get_full_name }}</h6>
+    <h5>{{ request.user.pharmacy.name }}</h5>
+</div>
+
+<div class="list-group">
+    <span class="text-uppercase">Панель</span>
+    <a href="{% url 'pharmacy-drug' %}" class="list-group-item {% if request.path == pharmacy_drug_url %} active {% endif %}">Аптеки</a>
+
+    <span class="text-uppercase">Профиль</span>
+    <a href="{% url 'pharmacy-account' %}" class="list-group-item {% if request.path == pharmacy_account_url %} active {% endif %}">Профиль</a>
+</div>
+
+<div class="text-center">
+    <a href="{% url 'pharmacy-sign-out' %}?next={{ request.path }}" class="btn btn-red">Выход</a>
+</div>
+{% endblock %}

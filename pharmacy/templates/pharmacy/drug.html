@@ -1,0 +1,41 @@
+{% extends 'pharmacy/base.html' %}
+
+{% block page %}
+<div class="card">
+    <div class="card-header bg-ruby">
+        <h4 class="card-title text-center text-white">
+            Пиццы
+        </h4>
+    </div>
+    <div class="card-body">
+        <div class="text-right">
+            <a href="{% url 'pharmacy-add-drug' %}" class="btn btn-red">Добавить препарат</a>
+            <br>
+            <br>
+        </div>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr class="bg-danger text-white text-center">
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Короткое описание</th>
+                    <th>Цена</th>
+                    <th>Изображение</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for drug in drugs %}
+                <tr>
+                    <td scope="row">{{ drug.id }}</td>
+                    <td><a href="{% url 'pharmacy-edit-drug' drug.id %}">{{ drug.name }}</a></td>
+                    <td>{{ drug.short_descr }}</td>
+                    <td>{{ drug.price_sell }}</td>
+                    <td class="text-center"><img class="rounded" src="{{ MEDIA_URL }}{{ drug.image }}" width="50"
+                            height="50"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
