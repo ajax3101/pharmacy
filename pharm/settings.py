@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pharmacy',
     'bootstrap4',
+    'django_extensions',
    # 'crispy_forms',
    # 'django-countries', 
     'oauth2_provider',
